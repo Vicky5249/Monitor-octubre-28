@@ -311,366 +311,188 @@ body {
 }
 
 @media(max-width: 750px) {
-
     body {
         padding: 15px;
     }
-
     .header {
         align-items: flex-start;
     }
-
     .connection {
         font-size: 0;
         padding: 12px;
     }
-
     .connection .dot {
         margin: 0;
     }
-
     .cards {
         grid-template-columns: 1fr;
     }
-
     .title h2 {
         font-size: 25px;
     }
 }
 
 @media(max-width: 430px) {
-
     .temp-area {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .gauge {
         align-self: center;
     }
-
     .temperature {
         font-size: 58px;
     }
-
     .system {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
     }
 }
-
 </style>
-
 </head>
 
 <body>
-
 <div class="container">
-
-<div class="header">
-
-<div class="logo">
-
-<div>
-
-<h1>Vochito</h1>
-
-<p>Monitor del Sistema de Audio de un Automovil</p>
-
-</div>
-
-</div>
-
-<div class="connection">
-
-<div class="dot"></div>
-
-ESP32 CONECTADO
-
-</div>
-
-</div>
-
-
-<div class="cards">
-
-<div class="card">
-
-<div class="card-top">
-
-<div class="sensor-name">
-
-
-<div>
-
-<h3>
-Amplificador
-</h3>
-
-<span>
-DS18B20 • GPIO 27
-</span>
-
-</div>
-
-</div>
-
-<div class="sensor-number">
-SENSOR 01
-</div>
-
-</div>
-
-<div class="temp-area">
-
-<div class="temperature">
-
-<span id="temp1">
---
-</span>
-
-<span>
-°C
-</span>
-
-</div>
-
-<div class="gauge" id="gauge1">
-
-<div class="gauge-content">
-
-<strong id="gaugeText1">
---°
-</strong>
-
-<span>
-TEMP.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div id="status1" class="status">
-
-<div class="status-dot"></div>
-
-<span>
-Conectando...
-</span>
-
-</div>
-
-<div class="info">
-
-<div class="info-box">
-
-<span>
-LÍMITE DE AVISO
-</span>
-
-<strong>
-50 °C
-</strong>
-
-</div>
-
-<div class="info-box">
-
-<span>
-LÍMITE CRÍTICO
-</span>
-
-<strong>
-70 °C
-</strong>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="card-top">
-
-<div class="sensor-name">
-
-
-<div>
-
-<h3>
-Sensor Auxiliar
-</h3>
-
-<span>
-DS18B20 • GPIO 26
-</span>
-
-</div>
-
-</div>
-
-<div class="sensor-number">
-SENSOR 02
-</div>
-
-</div>
-
-<div class="temp-area">
-
-<div class="temperature">
-
-<span id="temp2">
---
-</span>
-
-<span>
-°C
-</span>
-
-</div>
-
-<div class="gauge" id="gauge2">
-
-<div class="gauge-content">
-
-<strong id="gaugeText2">
---°
-</strong>
-
-<span>
-TEMP.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div id="status2" class="status">
-
-<div class="status-dot"></div>
-
-<span>
-Conectando...
-</span>
-
-</div>
-
-<div class="info">
-
-<div class="info-box">
-
-<span>
-LÍMITE DE AVISO
-</span>
-
-<strong>
-50 °C
-</strong>
-
-</div>
-
-<div class="info-box">
-
-<span>
-LÍMITE CRÍTICO
-</span>
-
-<strong>
-70 °C
-</strong>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="card">
-  <div class="card-top">
-    <div class="sensor-name">
-      <div class="sensor-icon">🔊</div>
-      <div>
-        <h3>Sensor de sonido</h3>
-        <span>Sensor analógico de sonido • GPIO 34</span>
-      </div>
+    <div class="header">
+        <div class="logo">
+            <div>
+                <h1>Vochito</h1>
+                <p>Monitor del Sistema de Audio de un Automovil</p>
+            </div>
+        </div>
+        <div class="connection">
+            <div class="dot"></div>
+            ESP32 CONECTADO
+        </div>
     </div>
-    <div class="sensor-number">SENSOR 03</div>
-  </div>
-  <div class="temp-area">
-    <div class="temperature"><span id="sonido">--</span><span>%</span></div>
-    <div class="gauge" id="gaugeSonido">
-      <div class="gauge-content"><strong id="gaugeTextSonido">--%</strong><span>NIVEL</span></div>
+
+    <div class="cards">
+        <!-- Sensor 1 -->
+        <div class="card">
+            <div class="card-top">
+                <div class="sensor-name">
+                    <div>
+                        <h3>Amplificador</h3>
+                        <span>DS18B20 • GPIO 27</span>
+                    </div>
+                </div>
+                <div class="sensor-number">SENSOR 01</div>
+            </div>
+            <div class="temp-area">
+                <div class="temperature"><span id="temp1">--</span><span>°C</span></div>
+                <div class="gauge" id="gauge1">
+                    <div class="gauge-content">
+                        <strong id="gaugeText1">--°</strong>
+                        <span>TEMP.</span>
+                    </div>
+                </div>
+            </div>
+            <div id="status1" class="status">
+                <div class="status-dot"></div>
+                <span>Conectando...</span>
+            </div>
+            <div class="info">
+                <div class="info-box"><span>LÍMITE DE AVISO</span><strong>50 °C</strong></div>
+                <div class="info-box"><span>LÍMITE CRÍTICO</span><strong>70 °C</strong></div>
+            </div>
+        </div>
+
+        <!-- Sensor 2 -->
+        <div class="card">
+            <div class="card-top">
+                <div class="sensor-name">
+                    <div>
+                        <h3>Sensor Auxiliar</h3>
+                        <span>DS18B20 • GPIO 26</span>
+                    </div>
+                </div>
+                <div class="sensor-number">SENSOR 02</div>
+            </div>
+            <div class="temp-area">
+                <div class="temperature"><span id="temp2">--</span><span>°C</span></div>
+                <div class="gauge" id="gauge2">
+                    <div class="gauge-content">
+                        <strong id="gaugeText2">--°</strong>
+                        <span>TEMP.</span>
+                    </div>
+                </div>
+            </div>
+            <div id="status2" class="status">
+                <div class="status-dot"></div>
+                <span>Conectando...</span>
+            </div>
+            <div class="info">
+                <div class="info-box"><span>LÍMITE DE AVISO</span><strong>50 °C</strong></div>
+                <div class="info-box"><span>LÍMITE CRÍTICO</span><strong>70 °C</strong></div>
+            </div>
+        </div>
+
+        <!-- Sensor 3 -->
+        <div class="card">
+            <div class="card-top">
+                <div class="sensor-name">
+                    <div class="sensor-icon">🔊</div>
+                    <div>
+                        <h3>Sensor de sonido</h3>
+                        <span>Sensor analógico de sonido • GPIO 34</span>
+                    </div>
+                </div>
+                <div class="sensor-number">SENSOR 03</div>
+            </div>
+            <div class="temp-area">
+                <div class="temperature"><span id="sonido">--</span><span>%</span></div>
+                <div class="gauge" id="gaugeSonido">
+                    <div class="gauge-content"><strong id="gaugeTextSonido">--%</strong><span>NIVEL</span></div>
+                </div>
+            </div>
+            <div id="statusSonido" class="status"><div class="status-dot"></div><span>Conectando...</span></div>
+            <div class="info">
+                <div class="info-box"><span>DETECCIÓN</span><strong id="deteccionSonido">Sin datos</strong></div>
+                <div class="info-box"><span>TIPO</span><strong>Intensidad relativa</strong></div>
+            </div>
+        </div>
+
+        <!-- Sensor 4 -->
+        <div class="card">
+            <div class="card-top">
+                <div class="sensor-name">
+                    <div class="sensor-icon">⚡</div>
+                    <div>
+                        <h3>Voltaje del amplificador</h3>
+                        <span>Medidor de voltaje • ADC GPIO 35</span>
+                    </div>
+                </div>
+                <div class="sensor-number">SENSOR 04</div>
+            </div>
+            <div class="temp-area">
+                <div class="temperature"><span id="voltaje">--</span><span>V</span></div>
+                <div class="gauge" id="gaugeVoltaje">
+                    <div class="gauge-content"><strong id="gaugeTextVoltaje">-- V</strong><span>VOLTAJE</span></div>
+                </div>
+            </div>
+            <div id="statusVoltaje" class="status"><div class="status-dot"></div><span>Conectando...</span></div>
+            <div class="info">
+                <div class="info-box"><span>VOLTAJE MÍNIMO</span><strong>11.5 V*</strong></div>
+                <div class="info-box"><span>VOLTAJE MÁXIMO</span><strong>14.8 V*</strong></div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div id="statusSonido" class="status"><div class="status-dot"></div><span>Conectando...</span></div>
-  <div class="info">
-    <div class="info-box"><span>DETECCIÓN</span><strong id="deteccionSonido">Sin datos</strong></div>
-    <div class="info-box"><span>TIPO</span><strong>Intensidad relativa</strong></div>
-  </div>
-</div>
 
-<div class="card">
-  <div class="card-top">
-    <div class="sensor-name">
-      <div class="sensor-icon">⚡</div>
-      <div>
-        <h3>Voltaje del amplificador</h3>
-        <span>Medidor de voltaje • ADC GPIO 35</span>
-      </div>
+    <div class="system">
+        <div>
+            <div class="system-title">SISTEMA DE MONITOREO</div>
+            <div class="system-value">ESP32 • 4 sensores monitorizados</div>
+        </div>
+        <div class="update">Actualización automática: 2 s</div>
     </div>
-    <div class="sensor-number">SENSOR 04</div>
-  </div>
-  <div class="temp-area">
-    <div class="temperature"><span id="voltaje">--</span><span>V</span></div>
-    <div class="gauge" id="gaugeVoltaje">
-      <div class="gauge-content"><strong id="gaugeTextVoltaje">-- V</strong><span>VOLTAJE</span></div>
+
+    <div class="footer">
+        Ingenieria en Sistemas Automotrices
     </div>
-  </div>
-  <div id="statusVoltaje" class="status"><div class="status-dot"></div><span>Conectando...</span></div>
-  <div class="info">
-    <div class="info-box"><span>VOLTAJE MÍNIMO</span><strong>11.5 V*</strong></div>
-    <div class="info-box"><span>VOLTAJE MÁXIMO</span><strong>14.8 V*</strong></div>
-  </div>
-</div>
-\n</div>\n\n<div class="system">
-
-<div>
-
-<div class="system-title">
-SISTEMA DE MONITOREO
-</div>
-
-<div class="system-value">
-ESP32 • 4 sensores monitorizados
-</div>
-
-</div>
-
-<div class="update">
-Actualización automática: 2 s
-</div>
-
-</div>
-
-<div class="footer">
-
-Ingenieria en Sistemas Automotrices
-
-</div>
-
 </div>
 
 <script>
-
 function pintarEstado(id, color, fondo, mensaje) {
     const estado = document.getElementById(id);
     estado.style.color = color;
@@ -726,236 +548,87 @@ function actualizarVoltaje(valor) {
 }
 
 function actualizarTemperaturas() {
-
     fetch('/temperaturas')
-
     .then(response => {
-
         if (!response.ok) {
             throw new Error("Error HTTP");
         }
-
         return response.json();
-
     })
-
     .then(data => {
-
-        actualizarSensor(
-            data.sensor1,
-            "temp1",
-            "status1",
-            "gauge1",
-            "gaugeText1"
-        );
-
-        actualizarSensor(
-            data.sensor2,
-            "temp2",
-            "status2",
-            "gauge2",
-            "gaugeText2"
-        );
-
+        actualizarSensor(data.sensor1, "temp1", "status1", "gauge1", "gaugeText1");
+        actualizarSensor(data.sensor2, "temp2", "status2", "gauge2", "gaugeText2");
         actualizarSonido(data.sonido);
         actualizarVoltaje(data.voltaje);
-
     })
-
     .catch(error => {
-
-        mostrarError(
-            "temp1",
-            "status1",
-            "gaugeText1",
-            "gauge1"
-        );
-
-        mostrarError(
-            "temp2",
-            "status2",
-            "gaugeText2",
-            "gauge2"
-        );
-
+        mostrarError("temp1", "status1", "gaugeText1", "gauge1");
+        mostrarError("temp2", "status2", "gaugeText2", "gauge2");
         actualizarSonido(null);
         actualizarVoltaje(null);
-
     });
-
 }
 
-function actualizarSensor(
-    temp,
-    tempID,
-    statusID,
-    gaugeID,
-    gaugeTextID
-) {
-
-    if (
-        temp === null ||
-        typeof temp !== "number" ||
-        !Number.isFinite(temp)
-    ) {
-
-        mostrarError(
-            tempID,
-            statusID,
-            gaugeTextID,
-            gaugeID
-        );
-
+function actualizarSensor(temp, tempID, statusID, gaugeID, gaugeTextID) {
+    if (temp === null || typeof temp !== "number" || !Number.isFinite(temp)) {
+        mostrarError(tempID, statusID, gaugeTextID, gaugeID);
         return;
-
     }
 
-    document.getElementById(tempID)
-        .innerText = temp.toFixed(1);
-
-    document.getElementById(gaugeTextID)
-        .innerText = temp.toFixed(1) + "°";
+    document.getElementById(tempID).innerText = temp.toFixed(1);
+    document.getElementById(gaugeTextID).innerText = temp.toFixed(1) + "°";
 
     let porcentaje = temp / 100;
-
-    if (porcentaje > 1)
-        porcentaje = 1;
-
-    if (porcentaje < 0)
-        porcentaje = 0;
-
+    if (porcentaje > 1) porcentaje = 1;
+    if (porcentaje < 0) porcentaje = 0;
     let grados = porcentaje * 360;
 
     let color;
-
     if (temp < 50) {
-
         color = "#31e981";
-
-    }
-
-    else if (temp < 70) {
-
+    } else if (temp < 70) {
         color = "#f5c542";
-
-    }
-
-    else {
-
+    } else {
         color = "#ff5c5c";
-
     }
 
-    document.getElementById(gaugeID)
-        .style.background =
-        `conic-gradient(
-            ${color} 0deg,
-            ${color} ${grados}deg,
-            rgba(255,255,255,.07) ${grados}deg,
-            rgba(255,255,255,.07) 360deg
-        )`;
+    document.getElementById(gaugeID).style.background =
+        `conic-gradient(${color} 0deg, ${color} ${grados}deg, rgba(255,255,255,.07) ${grados}deg, rgba(255,255,255,.07) 360deg)`;
 
-    let status =
-        document.getElementById(statusID);
-
-    let statusText =
-        status.querySelector("span");
+    let status = document.getElementById(statusID);
+    let statusText = status.querySelector("span");
 
     if (temp < 50) {
-
-        status.style.color =
-            "#31e981";
-
-        status.style.background =
-            "rgba(49,233,129,.08)";
-
-        statusText.innerText =
-            "TEMPERATURA NORMAL";
-
+        status.style.color = "#31e981";
+        status.style.background = "rgba(49,233,129,.08)";
+        statusText.innerText = "TEMPERATURA NORMAL";
+    } else if (temp < 70) {
+        status.style.color = "#f5c542";
+        status.style.background = "rgba(245,197,66,.08)";
+        statusText.innerText = "TEMPERATURA ALTA";
+    } else {
+        status.style.color = "#ff5c5c";
+        status.style.background = "rgba(255,92,92,.08)";
+        statusText.innerText = "TEMPERATURA CRÍTICA";
     }
-
-    else if (temp < 70) {
-
-        status.style.color =
-            "#f5c542";
-
-        status.style.background =
-            "rgba(245,197,66,.08)";
-
-        statusText.innerText =
-            "TEMPERATURA ALTA";
-
-    }
-
-    else {
-
-        status.style.color =
-            "#ff5c5c";
-
-        status.style.background =
-            "rgba(255,92,92,.08)";
-
-        statusText.innerText =
-            "TEMPERATURA CRÍTICA";
-
-    }
-
 }
 
-function mostrarError(
-    tempID,
-    statusID,
-    gaugeTextID,
-    gaugeID
-) {
+function mostrarError(tempID, statusID, gaugeTextID, gaugeID) {
+    document.getElementById(tempID).innerText = "--";
+    document.getElementById(gaugeTextID).innerText = "--°";
+    document.getElementById(gaugeID).style.background =
+        `conic-gradient(#ff69b4 0deg, #ff69b4 15deg, rgba(255,255,255,.07) 15deg, rgba(255,255,255,.07) 360deg)`;
 
-    document.getElementById(tempID)
-        .innerText = "--";
+    let status = document.getElementById(statusID);
+    let text = status.querySelector("span");
 
-    document.getElementById(gaugeTextID)
-        .innerText = "--°";
-
-    document.getElementById(gaugeID)
-        .style.background =
-        `conic-gradient(
-            #ff69b4 0deg,
-            #ff69b4 15deg,
-            rgba(255,255,255,.07) 15deg,
-            rgba(255,255,255,.07) 360deg
-        )`;
-
-    let status =
-        document.getElementById(statusID);
-
-    let text =
-        status.querySelector("span");
-
-    status.style.color =
-        "#ff69b4";
-
-    status.style.background =
-        "rgba(255,105,180,.08)";
-
-    text.innerText =
-        "ERROR DE SENSOR";
-
+    status.style.color = "#ff69b4";
+    status.style.background = "rgba(255,105,180,.08)";
+    text.innerText = "ERROR DE SENSOR";
 }
 
 actualizarTemperaturas();
-
-setInterval(
-    actualizarTemperaturas,
-    2000
-);
-
+setInterval(actualizarTemperaturas, 2000);
 </script>
-
 </body>
-
 </html>
-
-
-
-
-
-
